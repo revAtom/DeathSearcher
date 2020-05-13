@@ -13,7 +13,7 @@ public class EditorGUIManager : Editor
         GUILayout.Label("-----Forces-----");
 
         move.movementForce = EditorGUILayout.Slider("SpeedForce", move.movementForce, 0.5f, 5f);
-        move.jumpForce = EditorGUILayout.Slider("JumpForce", move.jumpForce, 100f, 200f);
+        move.jumpForce = EditorGUILayout.Slider("JumpForce", move.jumpForce, .2f, 10f);
         #endregion
 
         #region Buttons

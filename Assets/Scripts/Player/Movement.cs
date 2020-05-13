@@ -3,26 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof (Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
-public class Movement : MonoBehaviour
+[RequireComponent(typeof(CapsuleCollider2D))]
+public class Movement : physicsBody
 {
     #region MovementValues
     private KeyCode Left = KeyCode.A, Right = KeyCode.D, Up = KeyCode.Space;
-
-    private Rigidbody2D rb;
     
     public float movementForce = 1, jumpForce = 1;
+
+    private SpriteRenderer spriteRenderer;
     #endregion
 
-    #region GorundCheckValues
-    private float checkRadius = .05f, jumpTimeCounter , jumpTime = 0.2f;
- 
-  
-    private bool isGrounded, isJumping, isLeft , isRight, isJump;
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    protected override void ComputerVelocity()
+    {
+        Vector2 move = Vector2.zero;
 
-    public Transform feetPos;
+        move.x = Input.GetAxis("Horizontal");
 
-    public LayerMask groundMask;
-    #endregion
+        if (Input.GetKeyDown(Up) && isGrounded)
+        {
+            velocity.y = jumpForce;
+        }
+        else if (Input.GetKeyUp(Up))
+        {
+            if (velocity.y > 0)
+                velocity.y = velocity.y * .5f;
+        }
+        bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.001f) : (move.x < 0.001f));
 
+        if (flipSprite)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+     
+        targetVelocity = move * movementForce;
+    }
 }

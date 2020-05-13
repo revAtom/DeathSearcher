@@ -11,6 +11,7 @@ public class physicsBody : MonoBehaviour
     protected bool isGrounded;
     protected Vector2 groundNormal;
 
+    protected Vector2 targetVelocity;
     protected Vector2 velocity;
     protected Rigidbody2D rb;
     protected ContactFilter2D contactFilter;
@@ -29,15 +30,31 @@ public class physicsBody : MonoBehaviour
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
     }
+     void Update()
+    {
+        targetVelocity = Vector2.zero;
+        ComputerVelocity();
+    }
+    protected virtual void ComputerVelocity()
+    {
+
+    }
     void FixedUpdate()
     {
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+        velocity.x = targetVelocity.x;
 
         isGrounded = false;
 
+        Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
+
         Vector2 deltaPosition = velocity * Time.deltaTime;
 
-        Vector2 move = Vector2.up * deltaPosition.y;
+        Vector2 move = moveAlongGround * deltaPosition.x;
+
+        Movement(move, false);
+
+       move = Vector2.up * deltaPosition.y;
 
         Movement(move, true);
     }
