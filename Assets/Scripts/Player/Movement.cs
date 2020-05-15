@@ -14,12 +14,8 @@ public class Movement : physicsBody
 
     public Animator playerAnim;
     public SpriteRenderer spriteRenderer;
-    private CapsuleCollider2D playerColider;
     #endregion
-     void Awake()
-    {
-        playerColider = GetComponent<CapsuleCollider2D>();    
-    }
+ 
     protected override void MoveInput()
     {
         AnimSetter();
@@ -37,7 +33,10 @@ public class Movement : physicsBody
         {
             move = Vector2.zero;
         }
-
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Shoot();
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -51,14 +50,6 @@ public class Movement : physicsBody
 #endif
         bool sideChecker = (spriteRenderer.flipX ? (move.x > 0.0001f) : (move.x < -0.0001f));
 
-     if (spriteRenderer.flipX)
-            {
-                playerColider.offset = new Vector2(.07f, 0);
-            }
-      else {
-       playerColider.offset = new Vector2(-.07f, 0);
-      }
-
 
         if (sideChecker)
         {
@@ -66,6 +57,10 @@ public class Movement : physicsBody
         }
      
         targetVelocity = move * movementForce;
+    }
+    void Shoot()
+    {
+
     }
    void AnimSetter()
     {

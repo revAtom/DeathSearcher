@@ -48,10 +48,12 @@ public class physicsBody : MonoBehaviour
     #region GravitySetter
     void FixedUpdate()
     {
-        velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+      
+           velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+
         velocity.x = targetVelocity.x;
 
-        isGrounded = false;
+       isGrounded = false;
 
         Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
 
