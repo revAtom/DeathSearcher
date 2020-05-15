@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class physicsBody : MonoBehaviour
 {
     public float minGroundNormaly = .65f;
@@ -20,7 +19,9 @@ public class physicsBody : MonoBehaviour
 
     protected const float minMoveDistance = .001f;
     protected const float shellRadius = .001f;
-     void OnEnable()
+
+    #region SetUp
+    void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -33,12 +34,18 @@ public class physicsBody : MonoBehaviour
      void Update()
     {
         targetVelocity = Vector2.zero;
-        ComputerVelocity();
+        MoveInput();
     }
-    protected virtual void ComputerVelocity()
+    #endregion
+
+    #region InputGetter
+    protected virtual void MoveInput()
     {
 
     }
+    #endregion
+
+    #region GravitySetter
     void FixedUpdate()
     {
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
@@ -58,7 +65,10 @@ public class physicsBody : MonoBehaviour
 
         Movement(move, true);
     }
- void Movement(Vector2 move, bool yMovement )
+    #endregion
+
+    #region Movement
+    void Movement(Vector2 move, bool yMovement )
     {
         float distance = move.magnitude;
 
@@ -97,4 +107,5 @@ public class physicsBody : MonoBehaviour
 
         rb.position = rb.position + move.normalized * distance;
     }
+    #endregion
 }

@@ -257,55 +257,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079852860}
-  - component: {fileID: 1079852863}
   - component: {fileID: 1079852862}
   - component: {fileID: 1079852861}
-  - component: {fileID: 1079852859}
-  - component: {fileID: 1079852858}
   m_Layer: 0
-  m_Name: Player
+  m_Name: VisualPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!70 &1079852858
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079852857}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.06971726, y: 0.026726604}
-  m_Size: {x: 0.08966416, y: 0.37619972}
-  m_Direction: 0
---- !u!50 &1079852859
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079852857}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!4 &1079852860
 Transform:
   m_ObjectHideFlags: 0
@@ -313,12 +273,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079852857}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 2001868831}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1079852861
 SpriteRenderer:
@@ -389,22 +349,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1079852863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079852857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49fb26b204bf05418ece0cb58c55dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minGroundNormaly: 0.65
-  gravityModifier: 1
-  movementForce: 1
-  jumpForce: 5
 --- !u!1 &1468998991
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +442,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1241,20 +1185,11 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: -6, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: -5, y: -4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1263,7 +1198,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1272,25 +1207,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
-  - first: {x: -2, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 14
-      m_TileSpriteIndex: 14
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
-  - first: {x: 3, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1331,28 +1248,19 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 8, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 16
-      m_TileSpriteIndex: 16
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: -3, y: -3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 23ff0db112edb31419cc8888bf15175e, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: b43cb5e5eb2830d4991b55968fc3f666, type: 2}
   - m_RefCount: 6
@@ -1379,28 +1287,24 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 05487db37a4beb0409ca90436d12059c, type: 2}
   - m_RefCount: 48
     m_Data: {fileID: 11400000, guid: eae2af6ef21fb0648aa6e2684700d93f, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 196eb259f8677484d9d4c450eb0dc748, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 96d610c66c0c32d4ab75955c7ac1538d, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 644e72152bbddf749aa4db8d68e069e0, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -5526420955712995785, guid: c2db414a57615a5448051dd02e3a6aa9,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 4312004272924321259, guid: c2db414a57615a5448051dd02e3a6aa9,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 6
     m_Data: {fileID: -1337366427866542296, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 2206038544617755239, guid: c2db414a57615a5448051dd02e3a6aa9,
-      type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 8712941145416840091, guid: c2db414a57615a5448051dd02e3a6aa9,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 24
     m_Data: {fileID: -3074622972204254746, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
@@ -1408,7 +1312,8 @@ Tilemap:
     m_Data: {fileID: 8614169870918952017, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 250676681748370485, guid: c2db414a57615a5448051dd02e3a6aa9, type: 3}
+    m_Data: {fileID: 4312004272924321259, guid: c2db414a57615a5448051dd02e3a6aa9,
+      type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -289433845542206198, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
@@ -1422,22 +1327,21 @@ Tilemap:
     m_Data: {fileID: 8135190579259285989, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 3462945841074203606, guid: 7e69a20fe022cde4c9b8a1784140e333,
+    m_Data: {fileID: 2206038544617755239, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
   - m_RefCount: 48
     m_Data: {fileID: 1377212918028028213, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 4296021273775817909, guid: c2db414a57615a5448051dd02e3a6aa9,
+    m_Data: {fileID: 8712941145416840091, guid: c2db414a57615a5448051dd02e3a6aa9,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 7958427364570795237, guid: c2db414a57615a5448051dd02e3a6aa9,
-      type: 3}
+    m_Data: {fileID: 250676681748370485, guid: c2db414a57615a5448051dd02e3a6aa9, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -7124238860724084366, guid: c2db414a57615a5448051dd02e3a6aa9,
+    m_Data: {fileID: 3462945841074203606, guid: 7e69a20fe022cde4c9b8a1784140e333,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 95
+  - m_RefCount: 91
     m_Data:
       e00: 1
       e01: 0
@@ -1456,7 +1360,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 95
+  - m_RefCount: 91
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -1498,3 +1402,92 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &2001868827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001868831}
+  - component: {fileID: 2001868828}
+  - component: {fileID: 2001868830}
+  - component: {fileID: 2001868829}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2001868828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001868827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b49fb26b204bf05418ece0cb58c55dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormaly: 0.65
+  gravityModifier: 1
+  movementForce: 1
+  jumpForce: 1
+  playerAnim: {fileID: 1079852862}
+  spriteRenderer: {fileID: 1079852861}
+--- !u!70 &2001868829
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001868827}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.1, y: 0.33}
+  m_Direction: 0
+--- !u!50 &2001868830
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001868827}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!4 &2001868831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001868827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1079852860}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
