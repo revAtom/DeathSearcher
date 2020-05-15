@@ -17,8 +17,8 @@ public class physicsBody : MonoBehaviour
     protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
 
-    protected const float minMoveDistance = .001f;
-    protected const float shellRadius = .001f;
+    protected const float minMoveDistance = .0001f;
+    protected const float shellRadius = .0001f;
 
     #region SetUp
     void OnEnable()

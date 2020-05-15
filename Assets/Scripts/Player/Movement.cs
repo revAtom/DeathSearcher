@@ -12,7 +12,7 @@ public class Movement : physicsBody
 
    Vector2 move;
 
-    public Animator playerAnim;
+    public Animator playerAnim, cameraAnims;
     public SpriteRenderer spriteRenderer;
     #endregion
  
@@ -40,6 +40,7 @@ public class Movement : physicsBody
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            StartCoroutine(Shaker());
             velocity.y = jumpForce;
         }
         else if (Input.GetButtonUp("Jump"))
@@ -70,5 +71,10 @@ public class Movement : physicsBody
 
         playerAnim.SetBool("isJump", !isGrounded);
     }
-   
+    IEnumerator Shaker()
+    {
+        cameraAnims.SetBool("isShake", true);
+        yield return new WaitForSeconds(.11f);
+        cameraAnims.SetBool("isShake", false);
+    }
 }
