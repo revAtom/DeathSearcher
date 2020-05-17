@@ -6,13 +6,21 @@ public class EviromentInteract : MonoBehaviour
 {
    private Animator anim;
 
-     void OnTriggerEnter2D(Collider2D collision)
+    void OnEnable()
     {
-     anim = collision.gameObject.GetComponent<Animator>();
-
+        anim = GetComponent<Animator>();
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
        if(collision.gameObject.tag == "Player")
         {
-            anim.SetBool("interact", true);
+            StartCoroutine(AnimSetter());
         } 
+    }
+    IEnumerator AnimSetter()
+    {
+        anim.SetBool("interact", true);
+        yield return new WaitForSeconds(.2f);
+        anim.SetBool("interact", false);
     }
 }

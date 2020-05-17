@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent (typeof (Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
-public class Movement : physicsBody
+public class Movement : PlayerBody
 {
     #region MovementValues
 
@@ -12,11 +12,11 @@ public class Movement : physicsBody
 
    Vector2 move;
 
-    public Animator playerAnim, cameraAnims;
+    public Animator playerAnim;
     public SpriteRenderer spriteRenderer;
     #endregion
  
-    protected override void MoveInput()
+    /*protected override void MoveInput()
     {
         AnimSetter();
 
@@ -40,7 +40,6 @@ public class Movement : physicsBody
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            StartCoroutine(Shaker());
             velocity.y = jumpForce;
         }
         else if (Input.GetButtonUp("Jump"))
@@ -70,11 +69,5 @@ public class Movement : physicsBody
         playerAnim.SetBool("isRun", isNowRunning);
 
         playerAnim.SetBool("isJump", !isGrounded);
-    }
-    IEnumerator Shaker()
-    {
-        cameraAnims.SetBool("isShake", true);
-        yield return new WaitForSeconds(.11f);
-        cameraAnims.SetBool("isShake", false);
-    }
+    }    */
 }
