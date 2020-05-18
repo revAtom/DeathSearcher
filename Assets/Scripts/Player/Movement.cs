@@ -15,30 +15,30 @@ public class Movement : PlayerBody
     public Animator playerAnim;
     public SpriteRenderer spriteRenderer;
     #endregion
- 
-    /*protected override void MoveInput()
+
+    protected override void GetInput()
     {
         AnimSetter();
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.A))
         {
-            move.x = -1f;     
+            MoveHorizontal(Vector2.left * movementForce);
         }
         if (Input.GetKeyDown(KeyCode.D)) 
         {
-            move.x = 1f;
+            MoveHorizontal(Vector2.right * movementForce);
         }
         if (!(Input.anyKey))
         {
-            move = Vector2.zero;
+            
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             Shoot();
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+    /*    if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = jumpForce;
         }
@@ -46,7 +46,7 @@ public class Movement : PlayerBody
         {
             if (velocity.y > 0)
                 velocity.y = velocity.y * .5f;
-        }
+        }*/
 #endif
         bool sideChecker = (spriteRenderer.flipX ? (move.x > 0.0001f) : (move.x < -0.0001f));
 
@@ -56,7 +56,7 @@ public class Movement : PlayerBody
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
      
-        targetVelocity = move * movementForce;
+
     }
     void Shoot()
     {
@@ -69,5 +69,5 @@ public class Movement : PlayerBody
         playerAnim.SetBool("isRun", isNowRunning);
 
         playerAnim.SetBool("isJump", !isGrounded);
-    }    */
+    }    
 }

@@ -5,40 +5,39 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour
 {
     private Rigidbody2D playerRb;
+    public Transform playerFootTransform;
 
-    private float gravityModifier = 50f;
-
-    Vector2 gravity;
-
+    private float gravityModifier = -9.81f, distanceToGround = 1f;
+        
+    private Vector2 gravity;
     public LayerMask ground;
-    bool isGround;
+
+    protected bool isGrounded;
      void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();    
     }
     void Update()
     {
-
+        isGrounded = Physics2D.OverlapCircle(playerFootTransform.position,distanceToGround, ground);
+        print(gravity);
     }
    void FixedUpdate()
     {
-        if (!isGround)
-        {
-            gravity = new Vector2(0, gravityModifier * Mathf.Sqrt(Time.fixedDeltaTime));
-            playerRb.velocity = -gravity;
-            Debug.Log(gravity);
+        GetInput();
+        if (!isGrounded)
+        {  
+            gravity = new Vector2(0,gravityModifier * Mathf.Sqrt(Time.fixedDeltaTime));
+            print(gravity);
+            playerRb.velocity = gravity;
         }
-     //   playerRb.velocity = Vector2.left - gravity;
     }
-    public void OnCollisionStay2D(Collision2D collision)
+    protected virtual void GetInput()
     {
-        if(collision.gameObject.layer == ground)
-        {
-            isGround = true;
-        }
-        else
-        {
-            isGround = false;
-        }
+
     }
+    protected void MoveHorizontal(Vector2 moveVector)
+    {
+        playerRb.velocity = moveVector - gravity;
+    }  
 }
